@@ -12,7 +12,7 @@ import (
 	"github.com/go-redis/redis/v8"
 )
 
-func RegsiterNewUser(username, password string) error {
+func RegisterNewUser(username, password string) error {
 	//redis-cli
 	// SYNTAX: SET key value
 	//SET username password
@@ -160,7 +160,7 @@ func FetchChatBetween(username1, username2, fromTS, toTS string) ([]model.Chat, 
 	}
 
 	// deserialise redis data to map
-	data := DeserialiseChat(res)
+	data := Deserialise(res)
 
 	//deserialise redis data to chat
 	chats := DeserialiseChat(data)

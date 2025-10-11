@@ -1,4 +1,4 @@
-package redisrep
+package redisrepo
 
 import (
 	"fmt"
@@ -21,6 +21,6 @@ func chatIndex() string {
 	return "idx#chats"
 }
 
-func contactListsZKey(username string) string {
+func contactListZKey(username string) string {
 	return "contacts:" + username
 }
