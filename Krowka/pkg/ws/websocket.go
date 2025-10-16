@@ -143,7 +143,7 @@ func setupRoutes() {
 	http.HandleFunc("/ws", serveWS)
 }
 
-func StartWebSocketServer() {
+func StartWebsocketServer() {
 	redisClient := redisrepo.InitialiseRedis()
 	defer redisClient.Close()
 

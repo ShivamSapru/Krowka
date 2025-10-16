@@ -28,7 +28,7 @@ func main() {
 		httpserver.StartHTTPServer()
 	} else if *server == "websocket" {
 		fmt.Println("Websocket server is starting on :8081")
-		ws.StartWebSocketServer()
+		ws.StartWebsocketServer()
 	} else {
 		fmt.Println("invalid server. Available server: http or websocket")
 	}
