@@ -12,10 +12,11 @@ import (
 )
 
 func init() {
-	//load the environment file .env
+	// Load the environment file .env
 	err := godotenv.Load()
 	if err != nil {
-		log.Fatal("Unable to Load the env file.", err)
+		// Non-fatal: continue if .env is missing in dev environments
+		log.Println(".env not found or unable to load; continuing with environment variables only")
 	}
 }
 
@@ -27,7 +28,7 @@ func main() {
 		fmt.Println("http server is starting on :8080")
 		httpserver.StartHTTPServer()
 	} else if *server == "websocket" {
-		fmt.Println("Websocket server is starting on :8081")
+		fmt.Println("websocket server is starting on :8081")
 		ws.StartWebsocketServer()
 	} else {
 		fmt.Println("invalid server. Available server: http or websocket")

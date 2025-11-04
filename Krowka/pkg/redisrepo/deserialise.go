@@ -25,7 +25,7 @@ func Deserialise(res interface{}) []Document {
 				arrOfValues := v[i+1].([]interface{})
 				value := arrOfValues[len(arrOfValues)-1].(string)
 
-				// add_id in the response
+				// add _id in the response
 				doc := Document{
 					ID:      v[i].(string),
 					Payload: []byte(value),
@@ -34,7 +34,6 @@ func Deserialise(res interface{}) []Document {
 
 				docs = append(docs, doc)
 			}
-
 			return docs
 		}
 	default:
@@ -61,6 +60,8 @@ func DeserialiseChat(docs []Document) []model.Chat {
 func DeserialiseContactList(contacts []redis.Z) []model.ContactList {
 	contactList := make([]model.ContactList, 0, len(contacts))
 
+	// improvement tip: use switch to get type of contact.Member
+	// handle unknown type accordingly
 	for _, contact := range contacts {
 		contactList = append(contactList, model.ContactList{
 			Username:     contact.Member.(string),

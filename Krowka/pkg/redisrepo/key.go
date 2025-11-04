@@ -14,7 +14,7 @@ func sessionKey(client string) string {
 }
 
 func chatKey() string {
-	return fmt.Sprintf("cjat#%d", time.Now().UnixMilli())
+	return fmt.Sprintf("chat#%d", time.Now().UnixMilli())
 }
 
 func chatIndex() string {
@@ -23,4 +23,9 @@ func chatIndex() string {
 
 func contactListZKey(username string) string {
 	return "contacts:" + username
+}
+
+// profileKey stores user profile JSON at key profile:<username>
+func profileKey(username string) string {
+	return "profile:" + username
 }
